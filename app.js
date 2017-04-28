@@ -19,7 +19,10 @@ var campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
 
 // START CONNECTIONS
-mongoose.connect("mongodb://localhost/yelp_camp");
+// ---- Use the local connection for development purposes and the mLab (or other) for production
+// Local connection:  mongoose.connect("mongodb://localhost/yelp_camp");
+// mLab  connection:  mongoose.connect("mongodb://admin:Dumba55@ds125481.mlab.com:25481/yelpcamp");
+mongoose.connect("mongodb://admin:Dumba55@ds125481.mlab.com:25481/yelpcamp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs"); // Start view engine
 app.use(express.static(__dirname + "/public"));
