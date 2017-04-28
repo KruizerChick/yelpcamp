@@ -17,12 +17,14 @@ var express = require("express"),
 var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
+    
+// ENVIRONMENTAL VARIABLES
+// Use the configured DATABASEURL variable if it exists; otherwise use the dev db as a backup
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
 
 // START CONNECTIONS
 // ---- Use the local connection for development purposes and the mLab (or other) for production
-// Local connection:  mongoose.connect("mongodb://localhost/yelp_camp");
-// mLab  connection:  mongoose.connect("mongodb://admin:Dumba55@ds125481.mlab.com:25481/yelpcamp");
-mongoose.connect("mongodb://admin:Dumba55@ds125481.mlab.com:25481/yelpcamp");
+mongoose.connect(url);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs"); // Start view engine
 app.use(express.static(__dirname + "/public"));
