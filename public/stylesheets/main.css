@@ -1,0 +1,23 @@
+body{
+    background: #fff;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.bk-thumbnail {
+    max-height: 300px;
+}
+
+.thumbnail .caption-full{
+    padding: 9px;
+}
+
+#delete-form {
+    display: inline;
+}
